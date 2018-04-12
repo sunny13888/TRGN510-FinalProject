@@ -1,0 +1,157 @@
+---
+title: "dataWhite"
+author: "Ying Sun"
+date: "3/25/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+all.files <- list.files(path = "/users/trgn510/final data/White 21",full.names = T,pattern = ".txt")
+mylist <- lapply(all.files,function(i) read.table(i, header = T, sep=","))
+mydata <- cbind(mylist)
+```
+
+```{r}
+setwd("/users/trgn510/final data/White 21")
+data1W <- read.table('f12dd1af-3bf8-4122-a18d-ea5619056430.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data2W <- read.table('33b759c0-0b57-403a-8426-122df5881832.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data3W <- read.table('ace34e34-d432-4c19-a50a-a00c9f17afbe.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data4W <- read.table('d9d768d6-f9e2-4d6e-bc23-7842d3413d41.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data5W <- read.table('b249613a-e4d8-4b85-9796-f056baf02018.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data6W <- read.table('8a92dbf2-4550-4e57-a08b-d46905998039.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data7W <- read.table('efd191af-85cb-43d6-a661-e5248e974682.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data8W <- read.table('24bd4e57-7f8f-4c1a-9f1d-af5e5f46c2ce.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+```
+
+```{r}
+setwd("/users/trgn510/final data/White 21")
+data9W <- read.table('37b64c4e-b0ab-44cf-b751-0c1c80a19c94.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data10W <- read.table('67371e85-cdad-4b17-ad23-19ef39fdc2c6.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data11W <- read.table('28ef84e7-f566-40a7-b239-26d3e23c878a.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data12W <- read.table('6f3dfcf1-9cd9-4c1e-91a2-58efd909dcb7.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data13W <- read.table('6c86f9ae-9e88-4eae-9ba3-4866943cca7f.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data14W <- read.table('004c60cf-c08e-49df-b4ce-baca41e11250.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data15W <- read.table('e18e0c27-029a-48dc-bdf4-ec00a0702db0.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data16W <- read.table('c7e1465f-cc5a-4dc9-9bb1-6f1112da7aad.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+```
+
+```{r}
+setwd("/users/trgn510/final data/White 21")
+data17W <- read.table('72c0e655-1d4d-4a79-9ece-b21b93094712.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data18W <- read.table('1bc02824-c696-404d-a652-2df8267ff5a6.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data19W <- read.table('05efced9-d60f-43ea-9b61-c6efaf902e7d.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data20W <- read.table('c33e56c0-2daf-4b0b-993f-51d2d99a7b53.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data21W <- read.table('3cdb19df-cdb9-443d-9f1b-99b3d9e54b47.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data22W <- read.table('b275a5d0-b9fe-4838-adb0-34db16a246af.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data23W <- read.table('358f2893-02b2-4d36-9c76-b818c28b6027.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data24W <- read.table('0c172934-64ff-44dc-bdba-4c738f5692ea.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data25W <- read.table('160aee04-df36-4e94-90c5-b01b2991ba48.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+```
+
+```{r}
+datam2W <- merge(data1W,data2W,by="ENSG00000242268.2")
+datam3W <- merge(datam2W,data3W,by="ENSG00000242268.2")
+datam4W <- merge(datam3W,data4W,by="ENSG00000242268.2")
+datam5W <- merge(datam4W,data5W,by="ENSG00000242268.2")
+datam6W <- merge(datam5W,data6W,by="ENSG00000242268.2")
+datam7W <- merge(datam6W,data7W,by="ENSG00000242268.2")
+datam8W <- merge(datam7W,data8W,by="ENSG00000242268.2")
+datam9W <- merge(datam8W,data9W,by="ENSG00000242268.2")
+datam10W <- merge(datam9W,data10W,by="ENSG00000242268.2")
+```
+
+```{r}
+datam11W <- merge(datam10W,data11W,by="ENSG00000242268.2")
+datam12W <- merge(datam11W,data12W,by="ENSG00000242268.2")
+datam13W <- merge(datam12W,data13W,by="ENSG00000242268.2")
+datam14W <- merge(datam13W,data14W,by="ENSG00000242268.2")
+datam15W <- merge(datam14W,data15W,by="ENSG00000242268.2")
+datam16W <- merge(datam15W,data16W,by="ENSG00000242268.2")
+datam17W <- merge(datam16W,data17W,by="ENSG00000242268.2")
+datam18W <- merge(datam17W,data18W,by="ENSG00000242268.2")
+datam19W <- merge(datam18W,data19W,by="ENSG00000242268.2")
+```
+
+```{r}
+datam20W <- merge(datam19W,data20W,by="ENSG00000242268.2")
+datam21W <- merge(datam20W,data21W,by="ENSG00000242268.2")
+datam22W <- merge(datam21W,data22W,by="ENSG00000242268.2")
+datam23W <- merge(datam22W,data23W,by="ENSG00000242268.2")
+datam24W <- merge(datam23W,data24W,by="ENSG00000242268.2")
+datam25W <- merge(datam24W,data25W,by="ENSG00000242268.2")
+```
+
+
+```{r}
+colnames(datam25W) <- c("GeneName","W1","W2","W3","W4","W5","W6","W7","W8","W9","W10","W11","W12","W13","W14","W15","W16","W17","W18","W19","W20","W21","W22","W23","W24","W25")
+```
+
+
+
+```{r}
+finaldataAW <- merge(datam25W,datam51,by="GeneName")
+```
+
+
+
+```{r}
+plot(finaldataAW$W1,finaldataAW$W2)
+```
+
+
+```{r}
+d <- density(finaldataAW$W1) # returns the density data
+ plot(d) # plots the results
+```
+
+
+
+```{r}
+finaldataAW2=data.frame(finaldataAW[,2:77])
+data.frame(finaldataAW[,1])
+
+```
+
+
+
+```{r}
+corr<-cor(finaldataAW2)
+```
+
+
+```{r}
+finaldataAW2.log <-log2(finaldataAW2+8.05e-12)
+```
+
+```{r}
+install.packages("reshape")
+library(reshape)
+melted_corr <- melt(corr)
+ head(melted_corr)
+```
+
+```{r}
+library(ggplot2)
+ggplot(data = melted_corr, aes(x=X1, y=X2, fill=value)) +
+ geom_tile()
+```
+
+
+```{r}
+ggplot(melted_corr , aes(x = X1, y = X2)) +
+ geom_raster(aes(fill = value)) +
+ scale_fill_gradient2(low="navy", mid="white", high="red", midpoint=0.5) + theme_classic()
+```
+
+
+
+```{r}
+install.packages('devtools')  
+devtools::install_github('hadley/ggplot2')
+install.packages('reshape2')
+```
+

@@ -1,0 +1,151 @@
+---
+title: "DATAframeAsian"
+author: "Ying Sun"
+date: "3/27/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("/users/trgn510/final data/Asian 47")
+data1 <- read.table('05ac7b05-e459-4833-97fc-530185a7a55f.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data2 <- read.table('dcf5a350-7cff-475a-8f53-376422f990eb.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data3 <- read.table('8b23546a-3a1c-42c4-bc51-1c338abed1de.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data4 <- read.table('d51b48fe-9327-4664-8925-b1053536dba7.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data5 <- read.table('9bb56719-e0cc-4ba2-8bae-14187b03243b.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data6 <- read.table('9c7ed831-de1d-40ea-9b7b-5076a8645732.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data7 <- read.table('7097ca31-8322-44a6-8fe7-f0c67bbf88fe.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data8 <- read.table('26c7d2b4-1bc6-464d-90c9-421464d9386f.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data9 <- read.table('307505d6-f810-4952-9959-c7cfb7e55f48.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data10 <- read.table('571f8fb1-0668-4443-a193-f4bdea78caef.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data11 <- read.table('872f4298-0808-497d-a951-61ca4d55eb58.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data12 <- read.table('63f03089-1c71-4f72-90b0-3027aa042fce.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data13 <- read.table('63686352-4585-490f-b795-82da33a33843.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data14 <- read.table('8eded011-a9f5-4b5d-b83b-482229a1ae24.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data15 <- read.table('0b530162-4c93-42cb-a2b0-4948d19963bd.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data16 <- read.table('2332d0de-9bc6-44e0-b1d4-03fb037b2568.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+```
+
+
+```{r}
+setwd("/users/trgn510/final data/Asian 47")
+data17 <- read.table('247cf0a0-bb25-4a18-a5c8-a4b8a43319e0.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data18 <- read.table('697d372a-b7b7-46fa-8f96-9a11997e47b8.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data19 <- read.table('c45cd340-4895-400a-a50e-19df90b67355.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data20 <- read.table('e1cec351-e1b5-442e-8167-3f85feb6a37a.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data21 <- read.table('c3c49837-1a3d-418b-9965-00fc4cdcc656.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data22 <- read.table('047bd029-d63b-4f25-8a73-b95ad72d434f.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data23 <- read.table('104c7c7e-583a-4496-a685-5d277e28c11b.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data24 <- read.table('38ed53de-d5bc-4c94-8f5d-c2b8e8e65782.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data25 <- read.table('48a16942-1858-40a9-b4b1-40477f24822d.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+```
+
+```{r}
+setwd("/users/trgn510/final data/Asian 47")
+data26 <- read.table('eab5b6fd-7f4d-41a8-83cb-5b09161b95cc.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data27 <- read.table('8b08c54a-b528-411d-a2f1-d935e8182d6d.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data28 <- read.table('52d8680b-0df6-4605-bca4-3539f3e0e4f0.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data29 <- read.table('5ead465c-2dae-4ae2-97a1-5b98e9e013ec.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data30 <- read.table('a29ab641-01a2-47fe-aec1-ee8f35682ddb.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data31 <- read.table('1db2cfc5-346d-4398-9dd4-8b92435059fd.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data32 <- read.table('ae838393-741d-4210-b398-4cde0997bd94.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data33 <- read.table('53735683-e9b2-4745-809d-5cba358f5b41.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data34 <- read.table('43366a09-bd18-463a-bd65-72303205a4f5.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data35 <- read.table('aeaf5abc-8442-483e-a7a8-bca5bc1b4cc6.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data36 <- read.table('3a76abb6-8b64-4a57-875c-c623476e8041.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data37 <- read.table('2e066bba-1516-426e-be6d-d684a167dda4.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data38 <- read.table('6dc4b2c3-3d43-41de-baff-92ceee3daf03.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data39 <- read.table('fe625352-dd2e-478d-8d21-06659f854945.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data40 <- read.table('a9123cf0-c6c0-42e7-b546-f11dfac355ce.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data41 <- read.table('18e687c3-7d76-4a4d-a665-95331732ef9c.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data42 <- read.table('d1cbb686-93d8-4349-8bf5-756887c60ebc.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data43 <- read.table('31b85c24-5bb4-4886-9870-406bbefa7a80.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+```
+
+```{r}
+setwd("/users/trgn510/final data/Asian 47")
+data44 <- read.table('78dade3a-a13f-4148-ada7-c443b1d93b14.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data45 <- read.table('b3980a43-0b57-4fa9-8ca8-ffa4809202f1.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data46 <- read.table('f3b485c8-7f7b-4827-8d79-e3a070d52222.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data47 <- read.table('f27747c6-ceb3-4849-a30a-9eb6229a5576.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data48 <- read.table('8cc5cf4d-d00f-40d0-9979-1f68f154289d.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data49 <- read.table('4450b090-a44a-4bdb-b82b-52ade905c7c1.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data50 <- read.table('ef252631-7591-48dc-8968-c5bd855bd3ab.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+data51 <- read.table('a73871e9-6fcf-4dcb-b8a2-f6864ee00f68.FPKM.txt', header = TRUE, sep = '\t', check.names = FALSE)
+```
+
+```{r}
+datam2 <- merge(data1,data2,by="ENSG00000242268.2")
+datam3 <- merge(datam2,data3,by="ENSG00000242268.2")
+datam4 <- merge(datam3,data4,by="ENSG00000242268.2")
+datam5 <- merge(datam4,data5,by="ENSG00000242268.2")
+datam6 <- merge(datam5,data6,by="ENSG00000242268.2")
+datam7 <- merge(datam6,data7,by="ENSG00000242268.2")
+datam8 <- merge(datam7,data8,by="ENSG00000242268.2")
+datam9 <- merge(datam8,data9,by="ENSG00000242268.2")
+datam10 <- merge(datam9,data10,by="ENSG00000242268.2")
+```
+
+```{r}
+datam11 <- merge(datam10,data11,by="ENSG00000242268.2")
+datam12 <- merge(datam11,data12,by="ENSG00000242268.2")
+datam13 <- merge(datam12,data13,by="ENSG00000242268.2")
+datam14 <- merge(datam13,data14,by="ENSG00000242268.2")
+datam15 <- merge(datam14,data15,by="ENSG00000242268.2")
+datam16 <- merge(datam15,data16,by="ENSG00000242268.2")
+datam17 <- merge(datam16,data17,by="ENSG00000242268.2")
+datam18 <- merge(datam17,data18,by="ENSG00000242268.2")
+datam19 <- merge(datam18,data19,by="ENSG00000242268.2")
+```
+
+```{r}
+datam20 <- merge(datam19,data20,by="ENSG00000242268.2")
+datam21 <- merge(datam20,data21,by="ENSG00000242268.2")
+datam22 <- merge(datam21,data22,by="ENSG00000242268.2")
+datam23 <- merge(datam22,data23,by="ENSG00000242268.2")
+datam24 <- merge(datam23,data24,by="ENSG00000242268.2")
+datam25 <- merge(datam24,data25,by="ENSG00000242268.2")
+datam26 <- merge(datam25,data26,by="ENSG00000242268.2")
+datam27 <- merge(datam26,data27,by="ENSG00000242268.2")
+datam28 <- merge(datam27,data28,by="ENSG00000242268.2")
+datam29 <- merge(datam28,data29,by="ENSG00000242268.2")
+datam30 <- merge(datam29,data30,by="ENSG00000242268.2")
+datam31 <- merge(datam30,data31,by="ENSG00000242268.2")
+```
+
+```{r}
+datam32 <- merge(datam31,data32,by="ENSG00000242268.2")
+datam33 <- merge(datam32,data33,by="ENSG00000242268.2")
+datam34 <- merge(datam33,data34,by="ENSG00000242268.2")
+datam35 <- merge(datam34,data35,by="ENSG00000242268.2")
+datam36 <- merge(datam35,data36,by="ENSG00000242268.2")
+datam37 <- merge(datam36,data37,by="ENSG00000242268.2")
+datam38 <- merge(datam37,data38,by="ENSG00000242268.2")
+datam39 <- merge(datam38,data39,by="ENSG00000242268.2")
+datam40 <- merge(datam39,data40,by="ENSG00000242268.2")
+datam41 <- merge(datam40,data41,by="ENSG00000242268.2")
+```
+
+```{r}
+datam42 <- merge(datam41,data42,by="ENSG00000242268.2")
+datam43 <- merge(datam42,data43,by="ENSG00000242268.2")
+datam44 <- merge(datam43,data44,by="ENSG00000242268.2")
+datam45 <- merge(datam44,data45,by="ENSG00000242268.2")
+datam46 <- merge(datam45,data46,by="ENSG00000242268.2")
+datam47 <- merge(datam46,data47,by="ENSG00000242268.2")
+datam48 <- merge(datam47,data48,by="ENSG00000242268.2")
+datam49 <- merge(datam48,data49,by="ENSG00000242268.2")
+datam50 <- merge(datam49,data50,by="ENSG00000242268.2")
+datam51 <- merge(datam50,data51,by="ENSG00000242268.2")
+```
+
+```{r}
+colnames(datam51) <- c("GeneName","A1","A2","A3","A4","A5","A6","A7","A8","A9","A10","A11","A12","A13","A14","A15","A16","A17","A18","A19","A20","A21","A22","A23","A24","A25","A26","A27","A28","A29","A30","A31","A32","A33","A34","A35","A36","A37","A38","A39","A40","A41","A42","A43","A44","A45","A46","A47","A48","A49","A50","A51")
+```
+
+
+
+

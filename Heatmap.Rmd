@@ -1,0 +1,26 @@
+---
+title: "finaldata heatmap"
+author: "Ying Sun"
+date: "4/11/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r}
+library(ggplot2)
+library(reshape2)
+library('plotly')
+library("dplyr")
+corr<-cor(finaldataAW2)
+melted_corr <- melt(corr)
+p<-ggplot(melted_corr , aes(x = Var1, y = Var2)) + geom_raster(aes(fill = value)) + scale_fill_gradient2(low="navy", mid="white", high="red", midpoint=0.5) + theme( plot.title = element_blank(),axis.text.x = element_blank(), axis.text.y = element_blank(), axis.title.y = element_blank(), axis.title.x = element_blank())
+
+ggplotly(p)
+```
+
