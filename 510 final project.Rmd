@@ -1,0 +1,111 @@
+---
+title: "510 Final Project"
+author: "Ying Sun"
+date: "4/23/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data Transformation
+```{r}
+finaldataAW2.log <-log2(finaldataAW2+8.05e-12)
+finaldataAW2.log.small <- finaldataAW2.log[seq(1, nrow(finaldataAW2.log), 20), ]
+pca <- prcomp(finaldataAW2.log.small,center = TRUE,scale. = TRUE)
+finaldataAW2.log.small2 <- finaldataAW2.log[seq(1, nrow(finaldataAW2.log), 1000), ]
+finaldataAW2.log.small3 <- finaldataAW2.log[seq(100,nrow(finaldataAW2.log),2000),]
+```
+
+# Load Packages 
+```{r}
+library(ggplot2)
+library(reshape2)
+library('plotly')
+library("dplyr")
+library(ComplexHeatmap)
+library(circlize)
+library(colorspace)
+library(GetoptLong)
+library(MASS)
+library(pvclust)
+```
+
+
+# Heatmap
+```{r}
+type = gsub("s\\d+_", "", colnames(finaldataAW2.log.small2))
+ha = HeatmapAnnotation(df = data.frame(type = type))
+Heatmap(finaldataAW2.log.small2, name = "expression", km = 5, top_annotation = ha, top_annotation_height = unit(4, "mm"), show_row_names = FALSE, show_column_names = FALSE)
+```
+
+
+
+# ggplotly (interactive)
+```{r}
+finaldataAW2.log.small2$Gene <- rownames(finaldataAW2.log.small2)
+melted_corr <- melt(finaldataAW2.log.small2, id.vars = c("Gene"))
+p<-ggplot(melted_corr , aes(x = variable, y = Gene)) + geom_raster(aes(fill = value)) + scale_fill_gradient2(low="navy", mid="white", high="red", midpoint=0.5) + theme( plot.title = element_blank(),axis.text.x = element_blank(), axis.text.y = element_blank(), axis.title.y = element_blank(), axis.title.x = element_blank())
+
+ggplotly(p)
+```
+
+# bonus points
+# Heatmap 1 original  
+```{r}
+Heatmap(finaldataAW2.log.small3)
+```
+# heatmap 2 discrete 
+```{r}
+discrete_finaldataAW2.log.small3 = matrix(sample(1:4, 100, replace = TRUE), 10, 10)
+colors = structure(rainbow_hcl(4), names = c("1", "2", "3", "4"))
+Heatmap(discrete_finaldataAW2.log.small3, col = colors)
+```
+
+# heatmap 3 add column and row name
+```{r}
+Heatmap(finaldataAW2.log.small3, name = "Sample Heatmap", column_title = "patients", 
+    row_title = "genes")
+```
+
+# heatmap 4 change row name position
+```{r}
+Heatmap(finaldataAW2.log.small3, name = "Heapmap sample", column_title = "patients", row_title = "genes", 
+    column_title_side = "bottom")
+```
+
+# heatmap 5 add title
+```{r}
+Heatmap(finaldataAW2.log.small3, name = "Heapmap Sample", column_title = "Gene Expression of Liver Hepatocellular Carcinoma in Asian and White People", 
+    column_title_gp = gpar(fontsize = 12, fontface = "bold"))
+```
+
+# Heatmap 6
+```{r}
+data(finaldataAW2.log.small3)
+sample.pv <- pvclust(finaldataAW2.log.small3, nboot=100)
+plot(sample.pv)
+Sample_scaled = apply(finaldataAW2.log.small3, 2, scale)
+Heatmap(Sample_scaled, cluster_columns = sample.pv$hclust, heatmap_legend_param = list(title = "expression"))
+```
+
+
+# bonus points
+# plot 1
+```{r}
+plot(finaldataAW$W1,finaldataAW$A1)
+```
+
+# plot 2
+```{r}
+plot(log2(finaldataAW$W1[(finaldataAW$W1>0 |finaldataAW$A1>0 )]),log2(finaldataAW$A1[(finaldataAW$W1>0 |finaldataAW$A1>0 )]))
+```
+
+# ggplotly 
+```{r}
+finaldataAW2.log.small2$Gene <- rownames(finaldataAW2.log.small2)
+finaldataAW2.log.small2_m <- melt(finaldataAW2.log.small2, id.vars = c("Gene"))
+ggplot(finaldataAW2.log.small2_m , aes(x = variable, y = Gene)) + geom_raster(aes(fill = value))
+```
+
