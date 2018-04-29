@@ -1,0 +1,29 @@
+---
+title: "data arrangement"
+author: "Ying Sun"
+date: "4/29/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+finaldataAW <- merge(datam25W,datam51,by="GeneName")
+finaldataAW2=data.frame(finaldataAW[,2:77])
+finaldataAW2.log <-log2(finaldataAW2+8.05e-12)
+finaldataAW2.log.small <- finaldataAW2.log[seq(1, nrow(finaldataAW2.log), 20), ]
+pca <- prcomp(finaldataAW2.log.small,center = TRUE,scale. = TRUE)
+finaldataAW2.log.small2 <- finaldataAW2.log[seq(1, nrow(finaldataAW2.log), 1000), ]
+finaldataAW2.log.small3 <- finaldataAW2.log[seq(100, nrow(finaldataAW2.log), 2000), ]
+```
+
+
+```{r}
+save(finaldataAW,finaldataAW2,finaldataAW2.log,finaldataAW2.log.small,finaldataAW2.log.small2,finaldataAW2.log.small3,pca, file = "~/Desktop/final.Rdata")
+```
+
+
+
+
