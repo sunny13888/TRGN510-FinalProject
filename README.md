@@ -19,6 +19,23 @@ library(GetoptLong)
 library(MASS)
 library(pvclust)
 ```
+
+# data transforming 
+```{r}
+finaldataAW <- merge(datam25W,datam51,by="GeneName")
+finaldataAW2=data.frame(finaldataAW[,2:77])
+finaldataAW2.log <-log2(finaldataAW2+8.05e-12)
+finaldataAW2.log.small <- finaldataAW2.log[seq(1, nrow(finaldataAW2.log), 20), ]
+pca <- prcomp(finaldataAW2.log.small,center = TRUE,scale. = TRUE)
+finaldataAW2.log.small2 <- finaldataAW2.log[seq(1, nrow(finaldataAW2.log), 1000), ]
+finaldataAW2.log.small3 <- finaldataAW2.log[seq(100, nrow(finaldataAW2.log), 2000), ]
+```
+
+# data saving
+```{r}
+save(finaldataAW,finaldataAW2,finaldataAW2.log,finaldataAW2.log.small,finaldataAW2.log.small2,finaldataAW2.log.small3,pca, file = "~/Desktop/final.Rdata")
+```
+
 # Load Data
 ```{r}
 setwd("~/Desktop/510final")
