@@ -22,12 +22,7 @@ library(pvclust)
 # Data Loading and Transformation
 ```{r}
 setwd("~/Desktop/510 final")
-load("510finaldata.RData")
-finaldataAW2.log <-log2(finaldataAW2+8.05e-12)
-finaldataAW2.log.small <- finaldataAW2.log[seq(1, nrow(finaldataAW2.log), 20), ]
-pca <- prcomp(finaldataAW2.log.small,center = TRUE,scale. = TRUE)
-finaldataAW2.log.small2 <- finaldataAW2.log[seq(1, nrow(finaldataAW2.log), 1000), ]
-finaldataAW2.log.small3 <- finaldataAW2.log[seq(100,nrow(finaldataAW2.log),2000),]
+load("finaldata.RData")
 ```
 # Heatmap
 ```{r}
