@@ -19,11 +19,15 @@ library(GetoptLong)
 library(MASS)
 library(pvclust)
 ```
-# Data Loading and Transformation
+# Load Data
 ```{r}
-setwd("~/Desktop/510 final")
+setwd("~/Desktop/510final")
 load("finaldata.RData")
 ```
+
+# Save useful data
+```{r}
+save(finaldata, file = "c:/data/foo.Rdata")
 # Heatmap
 ```{r}
 type = gsub("s\\d+_", "", colnames(finaldataAW2.log.small2))
